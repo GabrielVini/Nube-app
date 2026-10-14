@@ -1,0 +1,22 @@
+<main>
+  <section class="visual">
+    <div class="glow"></div><img src="/nobe-logo.png" alt="Nobe Estágios">
+    <div><span>RECUPERAÇÃO DE ACESSO</span><h1>Vamos ajudar você<br><em>a voltar.</em></h1><p>Informe seu código de acesso. A nova senha temporária será encaminhada exclusivamente para a administração.</p></div>
+  </section>
+  <section class="form-side">
+    <div class="mobile-logo"><img src="/nobe-logo.png" alt="Nobe Estágios"></div>
+    <div class="card">
+      @if(!sent){
+        <div class="icon">↻</div><span class="tag">ESQUECI MINHA SENHA</span><h2>Recupere seu acesso</h2><p class="intro">Digite o código de quatro dígitos fornecido pela administração.</p>
+        <form (ngSubmit)="send()" novalidate>
+          <label>Código de acesso<div class="input"><i>#</i><input name="code" [(ngModel)]="code" placeholder="0000" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" [class.invalid]="submitted&&!code.match('^[0-9]{4}$')"></div>@if(submitted&&!code.match('^[0-9]{4}$')){<small>Informe os quatro dígitos.</small>}</label>
+          @if(apiError){<p class="api-error">{{apiError}}</p>}
+          <button type="submit" [disabled]="loading">{{loading?'Enviando...':'Solicitar nova senha'}} <b>{{loading?'···':'→'}}</b></button>
+        </form>
+      }@else{
+        <div class="success"><div>✓</div><span>SOLICITAÇÃO ENVIADA</span><h2>Avise a administração</h2><p>Se o código estiver ativo, a senha temporária será enviada para o e-mail administrativo cadastrado no sistema.</p></div>
+      }
+      <a routerLink="/login" class="back">← Voltar para o login</a>
+    </div>
+  </section>
+</main>

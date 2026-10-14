@@ -1,0 +1,11 @@
+<main class="login-page">
+  <section class="brand-panel"><div class="brand-content"><img src="/nobe-logo.png" alt="Nobe Estágios" class="logo"><div class="hero-copy"><span class="eyebrow">SEGURANÇA DO ACESSO</span><h1>Crie uma senha<br><em>só sua.</em></h1><p>A senha temporária precisa ser substituída antes de acessar o gerador de contratos.</p></div></div></section>
+  <section class="form-panel"><div class="login-card"><div class="welcome"><span>PRIMEIRO ACESSO</span><h2>Crie sua nova senha</h2><p>Use pelo menos 8 caracteres. Não é necessário digitar novamente a senha temporária.</p></div>
+    <form (ngSubmit)="save()" novalidate>
+      <label>Nova senha<span class="input-wrap"><i>⌑</i><input type="password" name="newPassword" [(ngModel)]="newPassword" autocomplete="new-password"></span>@if(submitted&&newPassword.length<8){<small class="error">Use pelo menos 8 caracteres.</small>}</label>
+      <label>Confirme a nova senha<span class="input-wrap"><i>⌑</i><input type="password" name="confirmation" [(ngModel)]="confirmation" autocomplete="new-password"></span>@if(submitted&&newPassword!==confirmation){<small class="error">As senhas não coincidem.</small>}</label>
+      @if(apiError){<div class="api-error"><span>!</span>{{apiError}}</div>}
+      <button type="submit" class="enter" [disabled]="loading">{{loading?'Salvando...':'Salvar nova senha'}} <span>→</span></button>
+    </form>
+  </div></section>
+</main>

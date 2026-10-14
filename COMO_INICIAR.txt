@@ -1,0 +1,29 @@
+NOBE ESTAGIOS - COMO INICIAR
+============================
+
+1. Extraia toda a pasta do projeto.
+2. Conecte o computador a internet no primeiro uso.
+3. Clique duas vezes em INICIAR_NOBE.bat.
+4. Aguarde as duas janelas dos servidores abrirem.
+5. Quando o Angular terminar de carregar, acesse:
+
+   http://127.0.0.1:4200
+
+No primeiro uso, o iniciador instala as dependencias e cria automaticamente
+um banco SQLite vazio com todas as tabelas. Isso pode levar alguns minutos.
+
+Nos proximos usos, basta executar novamente o mesmo INICIAR_NOBE.bat.
+
+Para desligar o sistema, feche as duas janelas abertas pelo iniciador:
+- Nobe Backend
+- Nobe Angular
+
+IMPORTANTE
+----------
+- Nao mova apenas o arquivo INICIAR_NOBE.bat. Ele deve continuar na raiz
+  da pasta do projeto.
+- O banco fica em backend\data\nobe.db.
+- A pasta backend\data nao e enviada ao GitHub, portanto cada computador
+  comeca com um banco vazio.
+- Para preservar os usuarios de um computador, faca uma copia de seguranca
+  do arquivo backend\data\nobe.db com os servidores desligados.

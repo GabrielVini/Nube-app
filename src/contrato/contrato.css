@@ -1,0 +1,1366 @@
+:host {
+  --cyan: #12c7cd;
+  --purple: #b21fd0;
+  --navy: #26344b;
+  --ink: #243142;
+  --muted: #6f7d8d;
+  --line: #dce4ec;
+  --soft: #f4f7fa;
+  display: block;
+  min-height: 100vh;
+  color: var(--ink);
+}
+* {
+  box-sizing: border-box;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+.topbar {
+  height: 74px;
+  padding: 0 28px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.brand {
+  width: 230px;
+  display: flex;
+  align-items: center;
+}
+.brand img {
+  width: 145px;
+  height: 56px;
+  object-fit: contain;
+  object-position: left;
+}
+.header-copy {
+  border-left: 1px solid var(--line);
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.header-copy span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.header-copy strong {
+  font-size: 14px;
+}
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+.button {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 17px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+.primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  box-shadow: 0 6px 18px #a826c638;
+}
+.ghost {
+  background: #fff;
+  color: #56677a;
+  border: 1px solid var(--line);
+}
+.mobile-menu {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  color: #536274;
+  font-size: 20px;
+}
+.workspace {
+  min-height: calc(100vh - 74px);
+  display: grid;
+  grid-template-columns: 210px minmax(470px, 0.92fr) minmax(520px, 1.08fr);
+  background: var(--soft);
+}
+.sidebar {
+  background: #fff;
+  border-right: 1px solid var(--line);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 74px;
+  height: calc(100vh - 74px);
+}
+.progress-card {
+  padding: 13px 10px 21px;
+  border-bottom: 1px solid var(--line);
+}
+.progress-card > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.progress-card strong {
+  color: #9620b4;
+}
+.progress-card i {
+  display: block;
+  height: 5px;
+  background: #e8eef4;
+  border-radius: 9px;
+  margin: 10px 0 7px;
+  overflow: hidden;
+}
+.progress-card i b {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+}
+.progress-card small {
+  color: #8a98a7;
+  font-size: 10px;
+}
+.folder-tree {
+  padding-top: 18px;
+  display: grid;
+  gap: 5px;
+}
+.folder-tree button {
+  border: 0;
+  background: transparent;
+  color: #657487;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+.folder-tree button span {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: #eff3f7;
+  font-size: 10px;
+  font-weight: 800;
+}
+.folder-tree .folder-root {
+  width: 100%;
+  color: var(--navy);
+  background: #f7f8fb;
+}
+.folder-root .folder-icon {
+  font-size: 15px;
+  color: var(--purple);
+  background: #f7eafa;
+}
+.folder-root i {
+  margin-left: auto;
+  font-style: normal;
+}
+.folder-children {
+  display: grid;
+  gap: 4px;
+  margin: 7px 0 0 21px;
+  padding-left: 12px;
+  border-left: 1px solid #dce4eb;
+}
+.folder-children button.active {
+  color: #9f20bd;
+  background: linear-gradient(90deg, #e9fbfb, #f8eefa);
+}
+.folder-children button.active span {
+  color: #fff;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+}
+.logout-button {
+  margin-top: auto;
+  width: 100%;
+  border: 1px solid #f1c8cc;
+  border-radius: 9px;
+  background: #fff7f7;
+  color: #b7434d;
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.logout-button:hover {
+  background: #fdebed;
+  border-color: #e9adb3;
+  color: #9f303a;
+}
+.logout-button span {
+  font-size: 15px;
+  transform: rotate(180deg);
+}
+.form-panel {
+  padding: 37px 42px 70px;
+  overflow: hidden;
+}
+.form-intro {
+  margin-bottom: 28px;
+}
+.form-intro > span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #a622c5;
+}
+.form-intro h1 {
+  margin: 6px 0;
+  font-size: 26px;
+}
+.form-intro p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+form {
+  display: grid;
+  gap: 18px;
+}
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  background: #fff;
+  scroll-margin-top: 95px;
+  box-shadow: 0 3px 12px #23394e08;
+}
+legend {
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 23px;
+  font-size: 14px;
+  font-weight: 800;
+}
+legend > b {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #9321b0;
+  background: #f6eafa;
+  font-size: 10px;
+}
+legend span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+legend small {
+  font-size: 10px;
+  font-weight: 400;
+  color: #8996a4;
+}
+.grid {
+  clear: both;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.grid .wide {
+  grid-column: 1/-1;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #425267;
+  font-size: 11px;
+  font-weight: 700;
+}
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #d7e0e9;
+  color: var(--ink);
+  background: #fbfcfd;
+  border-radius: 7px;
+  outline: 0;
+  padding: 10px 11px;
+  font-size: 12px;
+  font-weight: 400;
+}
+input:focus,
+textarea:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px #12c7cd1c;
+}
+textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+.step-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 19px;
+}
+.next {
+  color: #8f20ad;
+  background: #f7edfa;
+  padding: 9px 14px;
+}
+.finish-card {
+  margin-top: 20px;
+  border: 1px solid #cfeaec;
+  background: #f3fbfb;
+  border-radius: 9px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.finish-card > b {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: #33aa75;
+  border-radius: 50%;
+}
+.finish-card span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.finish-card strong {
+  font-size: 12px;
+}
+.finish-card small {
+  font-size: 9px;
+  color: #6e7e8f;
+}
+.finish-card button {
+  margin-left: auto;
+}
+.preview-panel {
+  background: #e7edf3;
+  padding: 26px 30px 50px;
+  border-left: 1px solid #d5dee7;
+  min-width: 0;
+}
+.preview-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 690px;
+  margin: 0 auto 12px;
+}
+.preview-toolbar > span {
+  display: grid;
+  grid-template-columns: 11px auto;
+  align-items: center;
+  gap: 2px 6px;
+}
+.preview-toolbar i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+.preview-toolbar b {
+  font-size: 12px;
+}
+.preview-toolbar small {
+  grid-column: 2;
+  font-size: 9px;
+  color: #7c8b99;
+}
+.carousel-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.carousel-actions button {
+  width: 36px;
+  height: 34px;
+  border: 1px solid #cbd6e0;
+  border-radius: 8px;
+  background: #fff;
+  color: #34475b;
+  font-size: 18px;
+  cursor: pointer;
+}
+.carousel-actions button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.carousel-actions b {
+  min-width: 45px;
+  text-align: center;
+  font-size: 10px;
+  color: #647487;
+}
+.document-stack {
+  max-width: 690px;
+  margin: auto;
+}
+.contract-page {
+  display: none;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 210/297;
+  background: #fff;
+  padding: 47px 55px 42px;
+  box-shadow: 0 12px 38px #1d344323;
+  color: #171b20;
+  font:
+    9px/1.42 Arial,
+    sans-serif;
+  overflow: hidden;
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--cyan), var(--purple)) 1;
+}
+.contract-page.active {
+  display: block;
+}
+.document-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #dde3e8;
+}
+.document-header img {
+  width: 105px;
+  height: auto;
+}
+.document-header div {
+  text-align: right;
+  font-size: 8px;
+  letter-spacing: 0.9px;
+  color: #68737f;
+}
+.document-header div b,
+.document-header div span {
+  display: block;
+}
+.document-header div span {
+  margin-top: 2px;
+  color: #9e22bb;
+}
+.contract-page h1 {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.15px;
+  margin: 0 0 17px;
+}
+.contract-page h2 {
+  font-size: 8.5px;
+  margin: 0 0 4px;
+}
+.contract-page h3 {
+  text-align: center;
+  font-size: 9px;
+  margin: 16px 0 7px;
+}
+.contract-page h4 {
+  font-size: 8.5px;
+  margin: 11px 0 4px;
+}
+.contract-page p {
+  margin: 0 0 8px;
+  text-align: justify;
+}
+.contract-page ol {
+  margin: 0 0 8px;
+  padding-left: 20px;
+}
+.contract-page li {
+  margin-bottom: 4px;
+  text-align: justify;
+}
+.identification {
+  margin-bottom: 9px;
+}
+.identification h2 {
+  padding: 4px 7px;
+  background: #f1f4f6;
+  border-left: 3px solid var(--cyan);
+}
+.data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+  padding: 3px 7px;
+}
+.data-grid p {
+  min-height: 19px;
+  margin: 0;
+  padding: 3px 0;
+  border-bottom: 1px solid #e4e8ec;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.data-grid .full {
+  grid-column: 1/-1;
+}
+.place-date {
+  text-align: center !important;
+  margin: 35px 0 0 !important;
+  font-weight: 700;
+}
+.signatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 40px;
+  margin: 85px auto 0;
+  width: 90%;
+  text-align: center;
+}
+.signatures div:last-child {
+  grid-column: 1/-1;
+  width: 45%;
+  margin: auto;
+}
+.signatures div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signatures i {
+  width: 100%;
+  border-top: 1px solid #3f454b;
+}
+.signatures b {
+  margin-top: 6px;
+  font-size: 7.5px;
+  text-transform: uppercase;
+}
+.signatures small {
+  margin-top: 2px;
+  font-size: 7px;
+  color: #737d87;
+}
+.contract-page footer {
+  position: absolute;
+  bottom: 20px;
+  left: 55px;
+  right: 55px;
+  padding-top: 7px;
+  border-top: 1px solid #e1e5e9;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7px;
+  color: #7d8791;
+}
+.contract-page footer span {
+  font-weight: 700;
+  color: #a220bd;
+}
+.legal-note {
+  max-width: 690px;
+  margin: 12px auto 0;
+  text-align: center;
+  font-size: 9px;
+  color: #7b8997;
+}
+.mobile-sheet,
+.sheet-backdrop {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .workspace {
+    grid-template-columns: 190px minmax(430px, 1fr);
+  }
+  .preview-panel {
+    grid-column: 1/-1;
+    padding-top: 35px;
+  }
+}
+@media (max-width: 760px) {
+  .topbar {
+    height: 66px;
+    padding: 0 16px;
+  }
+  .brand {
+    width: auto;
+  }
+  .brand img {
+    width: 112px;
+    height: 48px;
+  }
+  .header-copy,
+  .header-actions .ghost,
+  .sidebar {
+    display: none;
+  }
+  .header-actions {
+    margin-left: auto;
+  }
+  .header-actions .primary {
+    padding: 10px 13px;
+    font-size: 11px;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  .workspace {
+    display: block;
+  }
+  .form-panel {
+    padding: 24px 17px 40px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .grid .wide {
+    grid-column: auto;
+  }
+  .preview-panel {
+    padding: 25px 10px;
+    border: 0;
+  }
+  .contract-page {
+    padding: 35px 28px 32px;
+    font-size: 7px;
+  }
+  .document-header img {
+    width: 80px;
+  }
+  .contract-page footer {
+    left: 28px;
+    right: 28px;
+  }
+  .data-grid {
+    gap: 0 8px;
+  }
+  .mobile-sheet {
+    display: flex;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(82vw, 330px);
+    background: #fff;
+    padding: 18px;
+    flex-direction: column;
+    gap: 7px;
+    box-shadow: -16px 0 40px #1d28452b;
+  }
+  .sheet-backdrop {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    border: 0;
+    background: #14223966;
+  }
+  .sheet-head {
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+  }
+  .sheet-head img {
+    width: 115px;
+  }
+  .sheet-head button {
+    border: 0;
+    background: #f3f5f8;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 23px;
+  }
+  .mobile-sheet > p {
+    margin: 16px 0 5px;
+    font-size: 10px;
+    font-weight: 800;
+    color: #8b98a8;
+  }
+  .mobile-sheet > button {
+    border: 0;
+    background: #f7f8fa;
+    border-radius: 10px;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #506074;
+    font-weight: 700;
+  }
+  .mobile-sheet > button span {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: #ebeff4;
+    font-size: 10px;
+  }
+  .mobile-sheet > button.active {
+    color: #a31fc1;
+    background: linear-gradient(90deg, #e9fbfb, #f8eefa);
+  }
+  .mobile-sheet > button.mobile-logout {
+    margin-top: auto;
+    border: 1px solid #f1c8cc;
+    background: #fff4f5;
+    color: #b7434d;
+    justify-content: center;
+  }
+  .mobile-sheet > button.mobile-logout span {
+    transform: rotate(180deg);
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+  :host,
+  .workspace,
+  .preview-panel,
+  .document-stack {
+    display: block !important;
+    background: #fff !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+  .contract-page {
+    display: block !important;
+    width: 210mm;
+    height: 297mm;
+    aspect-ratio: auto;
+    margin: 0;
+    padding: 15mm 17mm 14mm;
+    box-shadow: none;
+    border-top: 1.2mm solid transparent;
+    page-break-after: always;
+    break-after: page;
+    font-size: 8.4pt;
+    line-height: 1.38;
+    overflow: hidden;
+  }
+  .contract-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+  .document-header {
+    padding-bottom: 3mm;
+    margin-bottom: 5mm;
+  }
+  .document-header img {
+    width: 31mm;
+  }
+  .document-header div {
+    font-size: 7.5pt;
+  }
+  .contract-page h1 {
+    font-size: 11pt;
+    margin-bottom: 5mm;
+  }
+  .contract-page h2 {
+    font-size: 8pt;
+  }
+  .contract-page h3 {
+    font-size: 8.5pt;
+    margin: 4mm 0 2mm;
+  }
+  .contract-page h4 {
+    font-size: 8pt;
+    margin: 3mm 0 1mm;
+  }
+  .contract-page p {
+    margin-bottom: 2.2mm;
+  }
+  .contract-page ol {
+    margin-bottom: 2.2mm;
+    padding-left: 6mm;
+  }
+  .contract-page li {
+    margin-bottom: 1.1mm;
+  }
+  .identification {
+    margin-bottom: 2.4mm;
+  }
+  .identification h2 {
+    padding: 1.2mm 2mm;
+  }
+  .data-grid {
+    gap: 0 5mm;
+    padding: 0.8mm 2mm;
+  }
+  .data-grid p {
+    min-height: 5.5mm;
+    padding: 0.9mm 0;
+  }
+  .place-date {
+    margin-top: 12mm !important;
+  }
+  .signatures {
+    gap: 16mm 13mm;
+    margin-top: 27mm;
+  }
+  .signatures b {
+    font-size: 7pt;
+  }
+  .signatures small {
+    font-size: 6.5pt;
+  }
+  .contract-page footer {
+    bottom: 6mm;
+    left: 17mm;
+    right: 17mm;
+    padding-top: 2mm;
+    font-size: 6.5pt;
+  }
+}
+
+/* Primeira página fiel ao modelo NEO */
+.first-page {
+  padding-top: 30px;
+}
+.first-page-logo {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.first-page-logo img {
+  width: 142px;
+  height: auto;
+}
+.first-page h1 {
+  background: #ccefee;
+  padding: 4px 10px;
+  margin: 0 0 17px;
+  font-size: 10px;
+  line-height: 1.2;
+}
+.first-page .opening {
+  margin-bottom: 25px;
+}
+.first-page .identification {
+  margin-bottom: 20px;
+}
+.first-page .identification h2 {
+  padding: 0;
+  margin: 0 0 4px;
+  border: 0;
+  background: none;
+  font-size: 9px;
+  font-weight: 500;
+}
+.data-list {
+  display: grid;
+  gap: 0;
+}
+.data-list p {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 7px;
+  align-items: end;
+  min-height: 17px;
+  margin: 0;
+  padding: 1px 0;
+  text-align: left;
+}
+.data-list p b {
+  font-weight: 400;
+}
+.data-list p span {
+  min-width: 0;
+  border-bottom: 1px solid #7f858a;
+  padding: 0 2px 1px;
+  overflow-wrap: anywhere;
+}
+.first-page .agreement {
+  margin-top: 23px;
+  line-height: 1.65;
+}
+
+@media print {
+  .first-page {
+    padding-top: 9mm;
+  }
+  .first-page-logo {
+    height: 25mm;
+    margin-bottom: 3mm;
+  }
+  .first-page-logo img {
+    width: 43mm;
+  }
+  .first-page h1 {
+    font-size: 10pt;
+    padding: 1.2mm 3mm;
+    margin-bottom: 5mm;
+  }
+  .first-page .opening {
+    margin-bottom: 8mm;
+  }
+  .first-page .identification {
+    margin-bottom: 6mm;
+  }
+  .first-page .identification h2 {
+    padding: 0;
+    margin-bottom: 1mm;
+    font-size: 8.5pt;
+  }
+  .data-list p {
+    min-height: 5mm;
+    padding: 0.3mm 0;
+    gap: 2mm;
+  }
+  .data-list p span {
+    padding-bottom: 0.4mm;
+  }
+  .first-page .agreement {
+    margin-top: 7mm;
+    line-height: 1.55;
+  }
+}
+
+.data-list p span {
+  border-bottom: 0;
+}
+
+/* Medidas extraídas da primeira página do PDF NEO */
+.first-page {
+  border-top: 0;
+  font-family: 'Malgun Gothic', 'MalgunGothic', Arial, sans-serif;
+  padding: 29.5px 59px 42px;
+}
+.first-page-logo {
+  height: 65.8px;
+  margin: 0 0 10.7px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.first-page-logo img {
+  width: 167.4px;
+  height: 65.8px;
+  object-fit: contain;
+}
+.first-page h1 {
+  height: 17.4px;
+  margin: 0 0 17px;
+  padding: 1px 8px;
+  background: #cfefee;
+  font-family: Calibri, Arial, sans-serif;
+  font-size: 13.9px;
+  line-height: 15px;
+  font-weight: 700;
+}
+.first-page .opening {
+  margin: 0 0 34.6px;
+  font-size: 11.3px;
+  line-height: 11.3px;
+}
+.first-page .identification {
+  margin: 0 0 22.8px;
+}
+.first-page .identification h2 {
+  margin: 0 0 3.3px;
+  padding: 0;
+  background: none;
+  border: 0;
+  font:
+    400 11.3px/11.3px 'Malgun Gothic',
+    'MalgunGothic',
+    Arial,
+    sans-serif;
+}
+.first-page .data-list {
+  display: grid;
+  gap: 0;
+}
+.first-page .data-list p {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 7px;
+  align-items: start;
+  min-height: 19.1px;
+  margin: 0;
+  padding: 0;
+  font:
+    400 11.3px/11.3px 'Malgun Gothic',
+    'MalgunGothic',
+    Arial,
+    sans-serif;
+}
+.first-page .data-list p b {
+  font-weight: 400;
+}
+.first-page .data-list p span {
+  padding: 0;
+  border: 0;
+}
+.first-page .agreement {
+  margin: 0;
+  font-size: 11.3px;
+  line-height: 21.7px;
+  text-align: justify;
+}
+.first-page footer {
+  display: none;
+}
+
+@media print {
+  .first-page {
+    border-top: 0;
+    padding: 12.7mm 25.4mm 14mm;
+    font-family: 'Malgun Gothic', 'MalgunGothic', Arial, sans-serif;
+  }
+  .first-page-logo {
+    height: 20.05mm;
+    margin: 0 0 3.77mm;
+  }
+  .first-page-logo img {
+    width: 50.98mm;
+    height: 20.05mm;
+  }
+  .first-page h1 {
+    height: 5.29mm;
+    margin: 0 0 5.19mm;
+    padding: 0.35mm 2mm;
+    font:
+      700 12pt/12pt Calibri,
+      Arial,
+      sans-serif;
+  }
+  .first-page .opening {
+    margin: 0 0 13.25mm;
+    font:
+      400 9.75pt/9.75pt 'Malgun Gothic',
+      'MalgunGothic',
+      Arial,
+      sans-serif;
+  }
+  .first-page .identification {
+    margin: 0 0 7.7mm;
+  }
+  .first-page .identification h2 {
+    margin: 0 0 1.16mm;
+    font:
+      400 9.75pt/9.75pt 'Malgun Gothic',
+      'MalgunGothic',
+      Arial,
+      sans-serif;
+  }
+  .first-page .data-list p {
+    min-height: 5.82mm;
+    gap: 2mm;
+    font:
+      400 9.75pt/9.75pt 'Malgun Gothic',
+      'MalgunGothic',
+      Arial,
+      sans-serif;
+  }
+  .first-page .agreement {
+    font-size: 9.75pt;
+    line-height: 18.7pt;
+  }
+  .first-page footer {
+    display: none !important;
+  }
+}
+
+@media screen {
+  .first-page {
+    padding: 41.7px 83.6px 42px;
+  }
+  .first-page .opening {
+    margin-bottom: 43.5px;
+  }
+  .first-page .identification {
+    margin-bottom: 17.1px;
+  }
+  .first-page .identification h2 {
+    margin-bottom: 7.8px;
+  }
+}
+
+@media print {
+  .first-page .identification {
+    margin-bottom: 5.2mm;
+  }
+  .first-page .identification h2 {
+    margin-bottom: 2.38mm;
+  }
+}
+
+/* Páginas seguintes medidas a partir do PDF NEO */
+.continuation-page {
+  border-top: 0;
+  padding: 122.8px 83.6px 42px;
+  font:
+    400 11.3px/21.7px 'Malgun Gothic',
+    'MalgunGothic',
+    Arial,
+    sans-serif;
+}
+.continuation-page h3,
+.continuation-page h4 {
+  margin: 0 0 28.7px;
+  text-align: left;
+  font:
+    700 11.3px/11.3px 'Malgun Gothic',
+    'MalgunGothic',
+    Arial,
+    sans-serif;
+}
+.continuation-page h4 {
+  margin-top: 17.5px;
+}
+.continuation-page p {
+  margin: 0 0 17.5px;
+  text-align: justify;
+}
+.continuation-page ol,
+.continuation-page ul {
+  margin: 0 0 17.5px;
+  padding-left: 20.9px;
+}
+.continuation-page li {
+  margin: 0 0 8px;
+  text-align: justify;
+}
+.continuation-page footer {
+  display: none;
+}
+.signature-page .signatures {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 42px;
+  width: 100%;
+  margin: 70px 0 0;
+  text-align: left;
+}
+.signature-page .signatures div,
+.signature-page .signatures div:last-child {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+.signature-page .signatures i {
+  display: block;
+  width: 100%;
+  border-top: 1px solid #3f454b;
+}
+.signature-page .signatures b {
+  display: block;
+  margin-top: 7px;
+  font:
+    700 11.3px/11.3px 'Malgun Gothic',
+    'MalgunGothic',
+    Arial,
+    sans-serif;
+  text-transform: none;
+}
+.signature-page .place-date {
+  margin: 55px 0 0 !important;
+  text-align: left !important;
+  font-weight: 400;
+}
+
+@media print {
+  .continuation-page {
+    border-top: 0;
+    padding: 37.5mm 25.4mm 14mm;
+    font:
+      400 9.75pt/18.75pt 'Malgun Gothic',
+      'MalgunGothic',
+      Arial,
+      sans-serif;
+  }
+  .continuation-page h3,
+  .continuation-page h4 {
+    margin: 0 0 8.7mm;
+    text-align: left;
+    font:
+      700 9.75pt/9.75pt 'Malgun Gothic',
+      'MalgunGothic',
+      Arial,
+      sans-serif;
+  }
+  .continuation-page h4 {
+    margin-top: 5.3mm;
+  }
+  .continuation-page p {
+    margin: 0 0 5.3mm;
+  }
+  .continuation-page ol,
+  .continuation-page ul {
+    margin: 0 0 5.3mm;
+    padding-left: 6.35mm;
+  }
+  .continuation-page li {
+    margin: 0 0 2.4mm;
+  }
+  .continuation-page footer {
+    display: none !important;
+  }
+  .signature-page .signatures {
+    grid-template-columns: 1fr;
+    gap: 14mm;
+    width: 100%;
+    margin: 23mm 0 0;
+    text-align: left;
+  }
+  .signature-page .signatures div,
+  .signature-page .signatures div:last-child {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  .signature-page .signatures i {
+    width: 100%;
+  }
+  .signature-page .signatures b {
+    margin-top: 2mm;
+    font:
+      700 9.75pt/9.75pt 'Malgun Gothic',
+      'MalgunGothic',
+      Arial,
+      sans-serif;
+  }
+  .signature-page .place-date {
+    margin: 18mm 0 0 !important;
+    text-align: left !important;
+    font-weight: 400;
+  }
+}
+
+/* Logo e respiro inferior das páginas 3 e 4 */
+.contract-page:nth-child(3),
+.contract-page:nth-child(4) {
+  padding-top: 31px;
+  padding-bottom: 70px;
+}
+.later-page-logo {
+  height: 65.8px;
+  margin: 0 0 26px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.later-page-logo img {
+  width: 167.4px;
+  height: 65.8px;
+  object-fit: contain;
+}
+
+@media print {
+  .contract-page:nth-child(3),
+  .contract-page:nth-child(4) {
+    padding-top: 10mm;
+    padding-bottom: 25mm;
+  }
+  .later-page-logo {
+    height: 20.05mm;
+    margin: 0 0 7.45mm;
+  }
+  .later-page-logo img {
+    width: 50.98mm;
+    height: 20.05mm;
+  }
+}
+
+/* Todas as páginas posteriores com logo e margem inferior confortável */
+.logo-page {
+  padding-top: 31px;
+  padding-bottom: 85px;
+}
+.signature-page .signatures {
+  gap: 54px;
+}
+.signature-page .signatures i {
+  margin-bottom: 10px;
+}
+
+@media print {
+  .logo-page {
+    padding-top: 10mm;
+    padding-bottom: 30mm;
+  }
+  .signature-page .signatures {
+    gap: 18mm;
+  }
+  .signature-page .signatures i {
+    margin-bottom: 3mm;
+  }
+}
+
+/* Marcação das cláusulas com a cor e largura do PDF original */
+.continuation-page h3 {
+  width: 100%;
+  min-height: 23.5px;
+  padding: 6px 8px;
+  background: #ceefee;
+  display: flex;
+  align-items: center;
+}
+
+@media print {
+  .continuation-page h3 {
+    width: 100%;
+    height: 7.14mm;
+    min-height: 7.14mm;
+    padding: 0 2mm;
+    background: #ceefee;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Caixa de seleção do período com o mesmo visual dos campos de data */
+select {
+  width: 100%;
+  border: 1px solid #d7e0e9;
+  color: var(--ink);
+  background: #fbfcfd;
+  border-radius: 7px;
+  outline: 0;
+  padding: 10px 36px 10px 11px;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+}
+select:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px #12c7cd1c;
+}
